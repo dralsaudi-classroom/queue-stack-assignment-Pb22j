@@ -49,14 +49,20 @@ public class TestQueueStack {
       assertEquals(tmp, 2);
       tmp = oq.serve();
       assertEquals(tmp, 3);
+      System.out.println(tmp);
       tmp = oq.serve();
       assertEquals(tmp, 6);
+      System.out.println(tmp);
       tmp = eq.serve();
       assertEquals(tmp, 1);
+      System.out.println(tmp);
       tmp = eq.serve();
       assertEquals(tmp, 4);
+      System.out.println(tmp);
       tmp = eq.serve();
       assertEquals(tmp, 5);
+      System.out.println(tmp);
+
    }
    @Test
    public void testSplit3()
