@@ -103,21 +103,18 @@ public class QueueStackTester {
         // the method. You are not allowed to use any auxiliary data structures.
         // Example. Given the stack st (top-to-bottom): 5, 7, 5, 3, 2. search(st, 3) returns
         // true while search(st, 1) returns false.
-        
-        if(st.empty())
-        	return false;
-    	T tmp = null;
-        while(!st.empty()) {
-        	tmp=st.pop();
-        	if(tmp==e) {
-        		st.push(tmp);
-        		return true;
-        	} 	
-        }
-        st.push(tmp);
-        
-        
-        
-        return false;
+    	 if(st.empty())
+         	return false;
+         
+         T tmp=st.pop();
+         if(tmp==e) {
+         	st.push(tmp);
+         	return true;
+         }
+         else {
+         	search(st, e);
+         }	 	
+         st.push(tmp);
+         return false;
     }
 }
