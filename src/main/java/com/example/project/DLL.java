@@ -65,7 +65,7 @@ public class DLL<T> {
             current = current.next;
     }
     public void removeBetween(T e1, T e2) {
-        throw new UnsupportedOperationException("Not supported yet.");
+     //   throw new UnsupportedOperationException("Not supported yet.");
         // throw new UnsupportedOperationException("Not supported yet.");
         // Write the method removeBetween, member of the class DoubleLinkedList. The method
         // takes two elements e1 and e2, and removes all the elements between the two elements
@@ -75,5 +75,95 @@ public class DLL<T> {
         // is: public void removeBetween(T e1, T e2).
         // Example 3.1. Given the list: A ↔ B ↔ C ↔ D ↔ E ↔ F, removeBetween(’B’,
         // ’E’) results in: A ↔ B ↔ E ↔ F.
+    	DLLNode<T> tmp1=head;
+    	DLLNode<T> tmp2=head;
+    	
+    	boolean found1=false;
+    	boolean notFound1=true;
+    	boolean found2=false;
+    	boolean notFound2=true;
+    	int counter1=0;
+    	int counter2=0;
+    	while(!found1&&notFound1) {
+    		if(tmp1.data ==e1) {
+           		
+           		found1=true;
+           		notFound1=false;
+           		
+           	  	  }
+           	   
+    		else if(tmp1.next!=null) {		
+       		 tmp1=tmp1.next;
+       		counter1++;
+       	 if(tmp1.data ==e1) {
+       		
+       		found1=true;
+       		notFound1=false;
+       	  	  }
+       	   }
+       	 else if(tmp1.next==null) {
+       		 notFound1=true;
+       		 found1=true;
+       	    }
+           }
+    	/*
+        while(tmp1.data !=e1) {
+        	tmp1=tmp1.next;
+         }
+         */
+        while(!found2&&notFound2) {
+        	
+        	if(tmp2.data ==e2) {	
+           		found2=true;
+           		notFound2=false;
+           		//counter2--;
+           	  	  }
+        	else if(tmp2.next!=null) {		
+        		 tmp2=tmp2.next;
+        		 counter2++;
+        	 if(tmp2.data ==e2) {
+        		
+        		found2=true;
+        		notFound2=false;
+        	  	  }
+        	   }
+        	 else if(tmp2.next==null) {
+        		 notFound2=true;
+        		 found2=true;
+        	    }
+            }
+    	
+    	System.out.println(tmp1.data +""+ tmp2.data);
+    	System.out.println(counter1 +"   "+ counter2);
+        if(found1==true&&notFound1==true)
+        	found1=false;
+        if(found2==true&&notFound2==true)
+        	found2=false;
+        if(found1&&found2) {
+        	if(counter1<counter2) {
+        	
+        while(tmp1.next!=tmp2) {
+        	tmp1.next.next.previous=tmp1;
+        	tmp1.next=tmp1.next.next;
+        }
+        tmp2.previous=tmp1;
+        current=head;
+        }
+        	else if(counter1>counter2) {
+        		while(tmp2.next!=tmp1) {
+                	tmp2.next.next.previous=tmp2;
+                	tmp2.next=tmp2.next.next;
+                }
+                tmp1.previous=tmp2;
+                current=head;
+        		
+        	}
+        }
+        
+        else {
+        	
+     	
+        }
+       
     }
 }
